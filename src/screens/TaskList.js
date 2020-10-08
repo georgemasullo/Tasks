@@ -7,7 +7,8 @@ import {
     FlatList,
     TouchableOpacity,
     Platform,
-    Alert
+    Alert,
+    StatusBar
 } from 'react-native'
 
 import AsyncStorage from "@react-native-community/async-storage"
@@ -93,6 +94,7 @@ export default class TaskList extends Component {
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
         return (
             <View style={styles.container}>
+                <StatusBar hidden/>    
                 <AddTask isVisible={this.state.showAddTask}
                     onCancel={() => this.setState({ showAddTask: false })}
                     onSave={this.addTask} />
